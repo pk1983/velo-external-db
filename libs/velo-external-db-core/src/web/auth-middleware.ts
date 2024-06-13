@@ -7,8 +7,10 @@ const { UnauthorizedError } = errors
 const extractSecretKey = (body: any) => property('requestContext.settings.secretKey', body)
 
 const authorizeSecretKey = (req: Request, secretKey: string) => {
+    console.log('secretKey', secretKey)
+    console.log('extractSecretKey(req.body)', extractSecretKey(req.body))
     if (extractSecretKey(req.body) !== secretKey) {
-        throw new UnauthorizedError('You are not authorized')
+        throw new UnauthorizedError('You are not authorized!?')
     }
 }
 

@@ -6,6 +6,7 @@ import AuthorizationConfigReader from './readers/authorization_config_reader'
 import * as aws from './readers/aws_config_reader'
 import * as gcp from './readers/gcp_config_reader'
 import * as azure from './readers/azure_config_reader'
+import * as managed from './readers/managed_config_reader'
 
 const DefaultSecretId = 'VELO-EXTERNAL-DB-SECRETS'
 
@@ -91,6 +92,16 @@ export const create = () => {
         case 'mysql':
         case 'postgres':
           internalConfigReader = new azure.AzureConfigReader()
+          break
+      }
+    }
+    break
+
+    case 'managed': {
+      authorizationConfigReader = new AuthorizationConfigReader()
+      switch (type) {
+        case 'mysql':
+          internalConfigReader = new managed.MysqlConfigReader()
           break
       }
     }

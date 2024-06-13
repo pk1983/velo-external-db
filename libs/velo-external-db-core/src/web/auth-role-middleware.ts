@@ -8,7 +8,7 @@ export const extractRole = (body: any) => property('requestContext.role', body)
 const authorizeRole = (req: Request, roles: string | any[]) => {
     const role = extractRole(req.body)
     if (!roles.includes(role)) {
-        throw new UnauthorizedError('You are not authorized')
+        throw new UnauthorizedError('You are not authorized by role:' + roles)
     }
 }
 

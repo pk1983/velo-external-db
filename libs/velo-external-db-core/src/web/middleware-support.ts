@@ -25,7 +25,7 @@ export const includes = function(path: any[], middleware: any) {
 
 export const property = (prop: any, body: any) => {
     if (!has(body, prop)) {
-        throw new UnauthorizedError('You are not authorized')
+        throw new UnauthorizedError('You are not authorized:missing property')
     }
     return get(body, prop)
 }

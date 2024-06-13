@@ -6,7 +6,7 @@ export const checkRequiredKeys = (obj: { [x: string]: any }, requiredKeys: any[]
 
 export const supportedDBs = ['postgres', 'spanner', 'firestore', 'mssql', 'mysql', 'mongo', 'airtable', 'dynamodb', 'bigquery', 'google-sheets']
 
-export const supportedVendors = ['gcp', 'aws', 'azure']
+export const supportedVendors = ['gcp', 'aws', 'azure', 'managed']
 
 const veloRoles: VeloRole[] = ['Admin', 'Member', 'Visitor'] 
 
